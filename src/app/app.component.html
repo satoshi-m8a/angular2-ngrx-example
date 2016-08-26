@@ -1,3 +1,26 @@
-<h1>
-  {{title}}
-</h1>
+<cp-header></cp-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>
+          {{ title }}
+      </h1>
+      <button type="button" class="btn btn-primary" (click)="increment()">Increment</button>
+      <div>Current Count: {{ counter | async }}</div>
+      <button type="button" class="btn btn-primary" (click)="decrement()">Decrement</button>
+
+      <button (click)="login()">Login</button>
+
+      <div> {{ (auth | async).sessionId }}</div>
+
+      <div *ngIf="(auth | async).loading">Loading</div>
+    </div>
+    <div class="col-sm-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+<a routerLink="/home">Link</a>
